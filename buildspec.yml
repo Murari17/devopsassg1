@@ -12,7 +12,7 @@ phases:
     commands:
       - echo Starting build step...
       - mkdir -p dist
-      - bash -c 'shopt -s extglob && cp -r !(dist) dist/'
+      - rsync -av --exclude dist ./ dist/
       - cp appspec.yml dist/
 
 artifacts:
